@@ -6,6 +6,7 @@ const AWS = require("aws-sdk");
 const config = require("./config");
 AWS.config.region = config.aws.region;
 const dynamodb = new AWS.DynamoDB();
+const healthController = require("./healthController");
 
 const schema = buildSchema(`
   type User {
@@ -109,5 +110,7 @@ router.use("/graphql", graphqlHTTP({
     schema: schema,
     rootValue: root
 }));
+
+router.use("/health",  healthController);
 
 module.exports = router;

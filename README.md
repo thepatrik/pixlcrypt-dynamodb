@@ -1,4 +1,5 @@
 # pixlcrypt-dynamodb
+[![Build Status](https://travis-ci.org/thepatrik/pixlcrypt-dynamodb.svg?branch=master)](https://travis-ci.org/thepatrik/pixlcrypt-dynamodb)
 
 pixlcrypt API based on express, graphql and dynamodb
 
@@ -15,17 +16,23 @@ Create a .env file and add environment variables to it
 Install app dependencies
 
 ```bash
-$ npm install
+$ npm i
 ```
 
 Run app with
 
 ```bash
-$ npm start
+$ make start
 ```
 
 Run linter
 
 ```bash
-$ npm run eslint
+$ make eslint
+```
+
+Run tests
+
+```bash
+$ make test
 ```
