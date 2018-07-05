@@ -24,7 +24,7 @@ const schema = buildSchema(`
   }
   type Query {
     users(email: String!):[User]
-    items(id: String!, userId: String!): [Item]
+    items(id: String, userId: String!): [Item]
   }
 `);
 

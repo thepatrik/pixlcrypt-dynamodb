@@ -10,6 +10,8 @@ pixlcrypt API based on express, graphql and dynamodb
 Create a .env file and add environment variables to it
 
 * `PORT` server port
+* `TEST_USER_USERNAME` Username used in tests.
+* `TEST_USER_PASSWORD` Password used in tests.
 
 ### scripts
 
