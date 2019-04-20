@@ -24,26 +24,25 @@ describe("Fetch development access token", () => {
             expect(token).to.not.be.empty;
             done();
         }).catch(err => {
-            console.log(err);
-            expect(token).to.not.be.empty;
+            done(err);
         });
     });
 });
 
-describe("HTTP POST /graphql query=users", () => {
+describe("HTTP POST /graphql query=user", () => {
     it("200: ok - fetch user", done => {
         request(app)
             .post("/graphql")
             .set("Authorization", "Bearer " + token)
             .send({query: `{
-                users(email: "pixlcrypt@gmail.com") {
+                user(email: "pixlcrypt@gmail.com") {
                     name
                     email
                 }
             }`})
             .type("form")
             .expect(res => {
-                expect(res.body.data.users.length).to.equal(1);})
+                expect(res.body.data.user).to.not.be.empty;})
             .expect(200, done);
     });
 });

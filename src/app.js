@@ -41,11 +41,16 @@ app.use(helmet.noCache());
 app.use(helmet.noSniff());
 app.use(helmet.frameguard());
 app.use(helmet.hidePoweredBy());
-app.use(helmet.hsts({
-    setIf: req => {
-        return utils.isSecure(req);
+
+const hstsMiddleware = helmet.hsts();
+
+app.use((req, res, next) => {
+    if (utils.isSecure(req)) {
+        hstsMiddleware(req, res, next);
+    } else {
+        next();
     }
-}));
+});
 
 app.use(cors());
 app.options("*", cors()); // include before other routes
