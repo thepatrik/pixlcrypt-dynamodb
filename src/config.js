@@ -1,6 +1,12 @@
 "use strict";
 
 module.exports.aws = {
+    authKeys: {
+        public: {
+            bucket: "pixlcrypt-public-auth",
+            key: "public-id.pem"
+        }
+    },
     region: "eu-west-1"
 };
 
